@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function horoscopo() {
     var anio = document.getElementById("anio").value;
 
-    //Aquí se valida que haya un valor en el input
+    // Aquí se valida que haya un valor en el input
     if (anio === "" || isNaN(anio) || anio <= 0) {
         alert("Por favor, ingresa un año válido.");
         return;
@@ -15,12 +15,12 @@ function horoscopo() {
     var signoTexto = "";
     var signoImagen = "";
 
-    //Esto es el residuo
+    // Esto es el residuo
     var residuoText = document.getElementById("residuo-text");
-    residuoText.innerHTML = `Residuo: ${residuo}`;
-    residuoText.classList.add("show");
+    residuoText.innerHTML = residuo;  // Solo muestra el número del residuo
+    residuoText.parentElement.classList.add("show");  // Añadir la clase 'show' después de actualizar el contenido
 
-    //Aquí evaluo todo
+    // Aquí evaluo todo
     switch (residuo) {
         case 0:
             signoTexto = "Mono";
@@ -76,13 +76,13 @@ function horoscopo() {
             break;
     }
 
-    //Esto es el signo
+    // Esto es el signo
     var signoText = document.getElementById("signo-text");
-    signoText.innerHTML = `Signo: ${signoTexto}`;
-    signoText.classList.add("show");
+    signoText.innerHTML = signoTexto;  // Solo muestra el texto del signo
+    signoText.parentElement.classList.add("show");  // Añadir la clase 'show' después de actualizar el contenido
 
-    //Esto es la imagen (┬┬﹏┬┬)
+    // Esto es la imagen
     var imagenContainer = document.querySelector("#imagen-container .imagen");
     imagenContainer.innerHTML = signoImagen;
-    imagenContainer.classList.add("show");
+    imagenContainer.classList.add("show");  // Añadir la clase 'show'
 }
